@@ -1,0 +1,340 @@
+:root {
+  --pink: #ff5c8a;
+  --pink-light: #ffd1dc;
+  --pink-dark: #d63384;
+  --cream: #fff5f7;
+  --purple: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(160deg, #fff0f5 0%, #ffe4ec 50%, #ffd6e8 100%);
+  color: #4a2c3a;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* ---------- Floating hearts background ---------- */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -10%;
+  font-size: 1.5rem;
+  color: var(--pink);
+  opacity: 0.7;
+  animation: floatUp linear infinite;
+  user-select: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ---------- Countdown Screen ---------- */
+#countdownScreen {
+  position: relative;
+  z-index: 1;
+}
+
+.pre-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--pink-dark);
+  margin-bottom: 0.25rem;
+}
+
+.countdown-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #6b2140;
+  max-width: 600px;
+}
+
+.countdown-timer {
+  z-index: 1;
+}
+
+.time-box {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 92, 138, 0.3);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  min-width: 80px;
+  box-shadow: 0 8px 24px rgba(214, 51, 132, 0.15);
+}
+
+.time-box span {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  line-height: 1;
+}
+
+.time-box small {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a5468;
+}
+
+.unlock-note {
+  color: #8a5468;
+  font-size: 0.95rem;
+}
+
+/* ---------- Hero ---------- */
+.hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+.balloons {
+  font-size: 2.5rem;
+  animation: sway 3s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+.hero-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4.5rem;
+  color: var(--pink-dark);
+  margin: 0;
+  text-shadow: 2px 2px 12px rgba(214, 51, 132, 0.25);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: #6b2140;
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+.scroll-hint {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: var(--pink-dark);
+  animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ---------- Section titles ---------- */
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: var(--pink-dark);
+}
+
+/* ---------- Gallery ---------- */
+.gallery-section {
+  position: relative;
+  z-index: 1;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 12px 12px 24px;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+
+.polaroid p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--pink-dark);
+  margin: 8px 0 0;
+}
+
+/* ---------- Letter ---------- */
+.letter-section {
+  position: relative;
+  z-index: 1;
+}
+
+.letter-card {
+  background: #fffdfa;
+  max-width: 700px;
+  padding: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(214, 51, 132, 0.15);
+  border: 1px solid rgba(214, 51, 132, 0.15);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.letter-card .signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+  color: var(--pink-dark);
+  margin-top: 1.5rem;
+}
+
+/* ---------- Wish / Cake ---------- */
+.wish-section {
+  position: relative;
+  z-index: 1;
+}
+
+.cake {
+  position: relative;
+  width: 180px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cake-top, .cake-middle, .cake-bottom {
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.cake-top {
+  width: 100px;
+  height: 40px;
+  background: var(--pink-light);
+}
+
+.cake-middle {
+  width: 140px;
+  height: 45px;
+  background: var(--pink);
+  margin-top: -4px;
+}
+
+.cake-bottom {
+  width: 180px;
+  height: 50px;
+  background: var(--purple);
+  margin-top: -4px;
+}
+
+.candle {
+  width: 10px;
+  height: 35px;
+  background: #ffe066;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 2px;
+}
+
+.flame {
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(circle, #ffec8b 0%, #ff9f1c 60%, #ff5c00 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  top: -20px;
+  left: -1px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: flicker 1s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); }
+  100% { transform: scale(1.1) rotate(2deg); }
+}
+
+.cake.blown .flame {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.tap-hint {
+  color: #8a5468;
+  font-size: 0.9rem;
+}
+
+.wish-msg {
+  font-size: 1.2rem;
+  color: var(--pink-dark);
+  font-weight: 600;
+}
+
+footer {
+  color: #8a5468;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Confetti ---------- */
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  .countdown-title {
+    font-size: 1.4rem;
+  }
+  .time-box {
+    min-width: 65px;
+    padding: 0.7rem 0.8rem;
+  }
+  .time-box span {
+    font-size: 1.6rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .letter-card {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
