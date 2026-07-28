@@ -40,6 +40,33 @@
   <p class="unlock-note">Unlocks on August 3rd, 12:00 AM 🔓</p>
 </section>
 
+<!-- ============ PASSWORD GAME SCREEN ============ -->
+<section id="passwordScreen" class="d-none d-flex flex-column align-items-center justify-content-center text-center vh-100 px-3">
+  <div class="lock-emoji">🔐</div>
+  <h2 class="password-title">One Last Step Before Your Surprise</h2>
+  <p class="password-question">Enter the number of months between your birthday and mine 🎂</p>
+
+  <div id="passwordGameArea">
+    <form id="passwordForm" class="password-form d-flex flex-column align-items-center gap-3 mt-3" autocomplete="off">
+      <input type="text" id="passwordInput" class="password-input" placeholder="Your answer..." inputmode="numeric">
+      <button type="submit" class="password-btn">Unlock 🔓</button>
+    </form>
+
+    <p id="wrongMsg" class="wrong-msg d-none">No, that's not it. Try again 💭</p>
+
+    <button type="button" id="hintToggle" class="hint-toggle mt-4">Need a hint?</button>
+    <p id="hintText" class="hint-text d-none">
+      Hint: count the difference, in months, between your birthday and mine — that gap is your answer. 🎈
+    </p>
+  </div>
+
+  <div id="correctMsg" class="correct-msg d-none">
+    <div class="correct-check">✔</div>
+    <p class="correct-title">Yes! That's exactly right 🎉</p>
+    <p class="correct-sub">Unlocking your surprise...</p>
+  </div>
+</section>
+
 <!-- ============ MAIN BIRTHDAY CONTENT (hidden until unlocked) ============ -->
 <main id="mainContent" class="d-none">
 
@@ -49,6 +76,34 @@
     <p class="pre-title">To the most special girl</p>
     <h1 class="hero-title">Happy Birthday!</h1>
     <p class="hero-sub">Every year, the world gets a little luckier<br>because it has you in it. 💕</p>
+
+    <div class="since-met">
+      <p class="since-met-label">It's been this long since we met 🥹</p>
+      <div class="since-met-timer d-flex flex-wrap justify-content-center gap-2 gap-md-3">
+        <div class="since-box">
+          <span id="metMonths">0</span>
+          <small>Months</small>
+        </div>
+        <div class="since-box">
+          <span id="metDays">0</span>
+          <small>Days</small>
+        </div>
+        <div class="since-box">
+          <span id="metHours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="since-box">
+          <span id="metMinutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="since-box">
+          <span id="metSeconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+      <p class="since-met-note">Since May 24, 2026 💕</p>
+    </div>
+
     <div class="scroll-hint">Scroll down ↓</div>
   </section>
 

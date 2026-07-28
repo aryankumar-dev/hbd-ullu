@@ -106,6 +106,142 @@ body {
   font-size: 0.95rem;
 }
 
+/* ---------- Password game screen ---------- */
+#passwordScreen {
+  position: relative;
+  z-index: 1;
+}
+
+.lock-emoji {
+  font-size: 3rem;
+  animation: sway 3s ease-in-out infinite;
+}
+
+.password-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: var(--pink-dark);
+  margin-top: 0.5rem;
+}
+
+.password-question {
+  color: #6b2140;
+  font-size: 1.05rem;
+  max-width: 420px;
+}
+
+.password-input {
+  width: 220px;
+  max-width: 80vw;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  border: 2px solid var(--pink);
+  outline: none;
+  font-size: 1.1rem;
+  background: #fff;
+  color: #4a2c3a;
+}
+
+.password-input:focus {
+  border-color: var(--pink-dark);
+  box-shadow: 0 0 0 4px rgba(214, 51, 132, 0.15);
+}
+
+.password-btn {
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.password-btn:hover {
+  transform: translateY(-2px);
+}
+
+.wrong-msg {
+  color: #c0334f;
+  font-weight: 600;
+  margin-top: 1rem;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.hint-toggle {
+  background: none;
+  border: 1px solid var(--pink-dark);
+  color: var(--pink-dark);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.hint-toggle:hover {
+  background: rgba(214, 51, 132, 0.08);
+}
+
+.hint-text {
+  max-width: 400px;
+  color: #8a5468;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  animation: fadeInHint 0.5s ease;
+}
+
+@keyframes fadeInHint {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.correct-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.correct-check {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: #fff;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.correct-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--pink-dark);
+  margin-top: 1rem;
+  animation: fadeInHint 0.5s ease 0.15s both;
+}
+
+.correct-sub {
+  color: #8a5468;
+  font-size: 0.9rem;
+  animation: fadeInHint 0.5s ease 0.3s both;
+}
+
 /* ---------- Hero ---------- */
 .hero-section {
   position: relative;
@@ -138,8 +274,53 @@ body {
   max-width: 500px;
 }
 
+.since-met {
+  margin-top: 2.5rem;
+}
+
+.since-met-label {
+  font-size: 0.95rem;
+  color: #6b2140;
+  margin-bottom: 0.75rem;
+}
+
+.since-met-timer {
+  z-index: 1;
+}
+
+.since-box {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  min-width: 62px;
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.15);
+}
+
+.since-box span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--purple);
+  line-height: 1;
+}
+
+.since-box small {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a5468;
+}
+
+.since-met-note {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #8a5468;
+}
+
 .scroll-hint {
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-size: 0.85rem;
   color: var(--pink-dark);
   animation: bounce 1.8s infinite;

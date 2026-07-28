@@ -22,7 +22,6 @@ function spawnHearts() {
 // ============ Countdown ============
 function startCountdown() {
   const countdownScreen = document.getElementById('countdownScreen');
-  const mainContent = document.getElementById('mainContent');
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
   const minutesEl = document.getElementById('minutes');
@@ -30,8 +29,7 @@ function startCountdown() {
 
   function unlock() {
     countdownScreen.classList.add('d-none');
-    mainContent.classList.remove('d-none');
-    launchConfetti();
+    showPasswordScreen();
   }
 
   function tick() {
@@ -62,6 +60,85 @@ function startCountdown() {
 
   tick();
   const timer = setInterval(tick, 1000);
+}
+
+// ============ Since we met ============
+const MET_DATE = new Date('2026-05-24T00:00:00');
+
+function startSinceMetTimer() {
+  const monthsEl = document.getElementById('metMonths');
+  const daysEl = document.getElementById('metDays');
+  const hoursEl = document.getElementById('metHours');
+  const minutesEl = document.getElementById('metMinutes');
+  const secondsEl = document.getElementById('metSeconds');
+
+  function tick() {
+    const now = new Date();
+
+    let months = (now.getFullYear() - MET_DATE.getFullYear()) * 12 + (now.getMonth() - MET_DATE.getMonth());
+    const cursor = new Date(MET_DATE);
+    cursor.setMonth(cursor.getMonth() + months);
+    if (cursor > now) {
+      months--;
+      cursor.setMonth(cursor.getMonth() - 1);
+    }
+
+    const remainderMs = now.getTime() - cursor.getTime();
+    const days = Math.floor(remainderMs / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((remainderMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((remainderMs % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remainderMs % (1000 * 60)) / 1000);
+
+    monthsEl.textContent = months;
+    daysEl.textContent = days;
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ============ Password game ============
+const CORRECT_PASSWORD = '3';
+
+function showPasswordScreen() {
+  document.getElementById('passwordScreen').classList.remove('d-none');
+}
+
+function setupPasswordGame() {
+  const form = document.getElementById('passwordForm');
+  const input = document.getElementById('passwordInput');
+  const wrongMsg = document.getElementById('wrongMsg');
+  const hintToggle = document.getElementById('hintToggle');
+  const hintText = document.getElementById('hintText');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const answer = input.value.trim().toLowerCase();
+
+    if (answer === CORRECT_PASSWORD || answer === 'three') {
+      document.getElementById('passwordGameArea').classList.add('d-none');
+      document.getElementById('correctMsg').classList.remove('d-none');
+      launchConfetti();
+
+      setTimeout(() => {
+        document.getElementById('passwordScreen').classList.add('d-none');
+        document.getElementById('mainContent').classList.remove('d-none');
+        launchConfetti();
+      }, 1800);
+    } else {
+      wrongMsg.classList.remove('d-none');
+      input.value = '';
+      input.focus();
+    }
+  });
+
+  hintToggle.addEventListener('click', () => {
+    hintText.classList.toggle('d-none');
+    hintToggle.textContent = hintText.classList.contains('d-none') ? 'Need a hint?' : 'Hide hint';
+  });
 }
 
 // ============ Cake / blow candle ============
@@ -142,11 +219,13 @@ const COUNTDOWN_ENABLED = false; // set to true to re-enable the lock screen
 
 document.addEventListener('DOMContentLoaded', () => {
   spawnHearts();
+  startSinceMetTimer();
+  setupPasswordGame();
   if (COUNTDOWN_ENABLED) {
     startCountdown();
   } else {
     document.getElementById('countdownScreen').classList.add('d-none');
-    document.getElementById('mainContent').classList.remove('d-none');
+    showPasswordScreen();
   }
   setupCake();
 });
