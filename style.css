@@ -338,6 +338,35 @@ body {
   color: var(--pink-dark);
 }
 
+/* ---------- Midnight message ---------- */
+.midnight-section {
+  position: relative;
+  z-index: 1;
+}
+
+.midnight-card {
+  max-width: 380px;
+  background: #fff;
+  padding: 14px 14px 22px;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(214, 51, 132, 0.18);
+  border: 1px solid rgba(214, 51, 132, 0.12);
+}
+
+.midnight-card img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.midnight-card p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--pink-dark);
+  margin: 10px 0 0;
+}
+
 /* ---------- Gallery ---------- */
 .gallery-section {
   position: relative;
