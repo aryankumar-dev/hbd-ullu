@@ -255,7 +255,7 @@ function setupMusic() {
 }
 
 // ============ Init ============
-const COUNTDOWN_ENABLED = false; // set to true to re-enable the lock screen
+const COUNTDOWN_ENABLED = true; // set to true to re-enable the lock screen
 
 document.addEventListener('DOMContentLoaded', () => {
   spawnHearts();
