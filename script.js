@@ -101,7 +101,11 @@ function startSinceMetTimer() {
 }
 
 // ============ Password game ============
-const CORRECT_PASSWORD = '3';
+function getDaysSinceMet() {
+  const now = new Date();
+  const msPerDay = 1000 * 60 * 60 * 24;
+  return Math.floor((now.getTime() - MET_DATE.getTime()) / msPerDay);
+}
 
 function showPasswordScreen() {
   document.getElementById('passwordScreen').classList.remove('d-none');
@@ -118,7 +122,7 @@ function setupPasswordGame() {
     e.preventDefault();
     const answer = input.value.trim().toLowerCase();
 
-    if (answer === CORRECT_PASSWORD || answer === 'three') {
+    if (answer === String(getDaysSinceMet())) {
       document.getElementById('passwordGameArea').classList.add('d-none');
       document.getElementById('correctMsg').classList.remove('d-none');
       launchConfetti();
