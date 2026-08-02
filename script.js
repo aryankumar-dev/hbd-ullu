@@ -218,6 +218,42 @@ window.addEventListener('resize', () => {
   canvas.height = window.innerHeight;
 });
 
+// ============ Background music ============
+function setupMusic() {
+  const music = document.getElementById('bgMusic');
+  const toggle = document.getElementById('musicToggle');
+  let playing = false;
+
+  function play() {
+    music.play().then(() => {
+      playing = true;
+      toggle.textContent = '🔊';
+    }).catch(() => {
+      playing = false;
+      toggle.textContent = '🔇';
+    });
+  }
+
+  music.volume = 0.5;
+  play();
+
+  document.addEventListener('click', function firstInteraction() {
+    if (!playing) play();
+    document.removeEventListener('click', firstInteraction);
+  });
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (playing) {
+      music.pause();
+      playing = false;
+      toggle.textContent = '🔇';
+    } else {
+      play();
+    }
+  });
+}
+
 // ============ Init ============
 const COUNTDOWN_ENABLED = false; // set to true to re-enable the lock screen
 
@@ -232,4 +268,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showPasswordScreen();
   }
   setupCake();
+  setupMusic();
 });
