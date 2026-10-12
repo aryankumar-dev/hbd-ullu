@@ -1,6 +1,6 @@
 // ============ Configuration ============
 // Change this to the moment the site should unlock.
-const UNLOCK_DATE = new Date('2026-08-03T00:00:00');
+const UNLOCK_DATE = new Date('2026-10-12T00:00:00');
 
 // ============ Floating hearts background ============
 function spawnHearts() {
@@ -63,7 +63,7 @@ function startCountdown() {
 }
 
 // ============ Since we met ============
-const MET_DATE = new Date('2026-05-24T00:00:00');
+const MET_DATE = new Date('2026-10-06T00:00:00');
 
 function startSinceMetTimer() {
   const monthsEl = document.getElementById('metMonths');
