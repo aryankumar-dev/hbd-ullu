@@ -1,6 +1,6 @@
 // ============ Configuration ============
 // Change this to the moment the site should unlock.
-const UNLOCK_DATE = new Date('2026-10-12T00:00:00');
+const UNLOCK_DATE = new Date('2026-10-13T00:00:00');
 
 // ============ Floating hearts background ============
 function spawnHearts() {
